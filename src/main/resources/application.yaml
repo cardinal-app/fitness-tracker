@@ -1,8 +1,10 @@
 spring:
   datasource:
     driverClassName: org.h2.Driver
-    password: password
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:./data/demo
     username: sa
+    password: password
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: update

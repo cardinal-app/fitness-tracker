@@ -1,4 +1,4 @@
-package com.jrsmth.cardinal.fittrack.week.model;
+package com.jrsmth.cardinal.fittrack.week;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,6 +1,7 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.resistance;
 
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
+import com.jrsmth.cardinal.fittrack.week.paradigm.resistance.session.ResistanceSession;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;

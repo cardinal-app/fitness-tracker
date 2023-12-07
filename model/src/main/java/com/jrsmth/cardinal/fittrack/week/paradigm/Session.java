@@ -17,6 +17,9 @@ public abstract class Session extends AbstractEntity {
     @Column(name = "ante_meridiem")
     private Boolean anteMeridiem;
 
+    @Column(name = "location")
+    private String location;
+
     @Column(name = "notes")
     private String notes;
 

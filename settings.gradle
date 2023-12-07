@@ -1,1 +1,4 @@
 rootProject.name = 'fit-track'
+
+include 'service'
+include 'model'

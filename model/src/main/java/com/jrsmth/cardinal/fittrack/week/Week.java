@@ -1,5 +1,6 @@
 package com.jrsmth.cardinal.fittrack.week;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
@@ -24,8 +25,6 @@ import java.io.Serial;
 import java.util.Date;
 import java.util.List;
 
-import static jakarta.persistence.GenerationType.IDENTITY;
-
 @Entity
 @Table(name = "week")
 @Builder @Getter @Setter
@@ -41,8 +40,9 @@ public class Week extends AbstractEntity {
     @Column(name = "week_no")
     private Integer week;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") // FixMe
     @Column(name = "week_commencing")
-    private Date week_commencing;
+    private Date weekCommencing;
 
     @Column
     @Enumerated

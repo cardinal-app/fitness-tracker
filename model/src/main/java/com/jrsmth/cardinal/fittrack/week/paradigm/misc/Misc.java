@@ -3,6 +3,7 @@ package com.jrsmth.cardinal.fittrack.week.paradigm.misc;
 
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.AuxiliarySession;
+import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.GPPSession;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.MiscSession;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,17 +30,15 @@ public class Misc extends AbstractEntity {
     private static final long serialVersionUID = -6901075776089719635L;
 
     @Column(name = "overall_week_notes")
-    private String overallWeekNotes;
-
-    @Column(name = "gen_phys")
-    private GenPhys genPhys;
+    private String weekNotes;
 
     @OneToMany(mappedBy = "misc", orphanRemoval = true, cascade = CascadeType.ALL)
-    @Column(name = "misc_sessions")
-    private List<MiscSession> miscSessions = new ArrayList<>();
+    private List<AuxiliarySession> auxiliaries = new ArrayList<>();
 
     @OneToMany(mappedBy = "misc", orphanRemoval = true, cascade = CascadeType.ALL)
-    @Column(name = "aux_sessions")
-    private List<AuxiliarySession> aux_sessions = new ArrayList<>();
+    private List<GPPSession> gpp = new ArrayList<>();
+
+    @OneToMany(mappedBy = "misc", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<MiscSession> sessions = new ArrayList<>();
 
 }

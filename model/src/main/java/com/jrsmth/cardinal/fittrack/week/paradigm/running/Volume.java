@@ -37,6 +37,6 @@ public class Volume extends AbstractEntity {
             joinColumns = {@JoinColumn(name = "volume_id", referencedColumnName = "id")})
     @MapKeyColumn(name = "activity_name")
     @Column(name = "activities")
-    private Map<String, String> activities;
+    private Map<String, Integer> activities;
 
 }

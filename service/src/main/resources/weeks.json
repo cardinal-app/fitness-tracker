@@ -26,8 +26,8 @@
       "volume": {
         "miles": 9,
         "activities": {
-          "footie": "1",
-          "squash": "2"
+          "footie": 1,
+          "squash": 2
         }
       },
       "sessions": [

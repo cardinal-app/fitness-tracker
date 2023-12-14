@@ -1,0 +1,95 @@
+[
+  {
+    "block": 14,
+    "week": 1,
+    "week_commencing": "2024-01-01",
+    "flags": ["OUT"],
+    "resistance": {
+      "sessions": [
+        {
+          "date": "2024-01-01",
+          "ante_meridiem": true,
+          "focus": "LOWER",
+          "exercises": [
+            {
+              "name": "Hex Squat",
+              "set_reps": [8, 8, 5, 5, 5, 5, 5],
+              "resistance": [35, 55, 90],
+              "notes": "Lorem ipsum dolor set.."
+            }
+          ],
+          "notes": "Lorem ipsum dolor set.."
+        }
+      ]
+    },
+    "running": {
+      "volume": {
+        "miles": 9,
+        "activities": {
+          "footie": "1",
+          "squash": "2"
+        }
+      },
+      "sessions": [
+        {
+          "date": "2024-01-02",
+          "ante_meridiem": true,
+          "type": "FINTAN",
+          "location": "KINGS",
+          "data_points": [
+            {
+              "score": "0.4"
+            }
+          ],
+          "notes": "Lorem ipsum dolor set.."
+        },
+        {
+          "date": "2024-01-06",
+          "ante_meridiem": true,
+          "type": "BFT",
+          "location": "CASSIO",
+          "data_points": [
+            {
+              "time_minutes": "21.3"
+            }
+          ],
+          "notes": "Lorem ipsum dolor set.."
+        }
+      ]
+    },
+    "misc": {
+      "gpp": [
+          {"day": "MONDAY", "press": 25, "pull": 10, "full": true},
+          {"day": "TUESDAY", "press": 28, "pull": 8, "full": true},
+          {"day": "WEDNESDAY", "press": 0, "pull": 0, "full": false},
+          {"day": "THURSDAY", "press": 24, "pull": 10, "full": true},
+          {"day": "FRIDAY", "press": 0, "pull": 9, "full": false}
+      ],
+      "overall_week_notes": "Lorem ipsum dolor set...",
+      "auxiliaries": [
+        {
+          "name": "SWIM",
+          "notes": "Lorem ipsum dolor set..."
+        },
+        {
+          "name": "RESTORE",
+          "notes": "Lorem ipsum dolor set..."
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2024-01-06",
+          "ante_meridiem": true,
+          "type": "PJFT",
+          "location": "CASSIO",
+          "data_points": [
+            {
+              "score": "2.25"
+            }
+          ],
+          "notes": "Lorem ipsum dolor set.."
+        }
+      ]
+    }
+  }
+]

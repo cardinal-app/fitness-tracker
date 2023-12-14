@@ -1,6 +1,7 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.running;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import com.jrsmth.cardinal.fittrack.week.paradigm.running.session.RunningSession;
 import jakarta.persistence.CascadeType;
@@ -24,6 +25,7 @@ import java.util.List;
 @Table(name = "running")
 @Builder @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Running extends AbstractEntity {
 
     @Serial
@@ -31,10 +33,10 @@ public class Running extends AbstractEntity {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "volume_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Volume volume;
 
     @OneToMany(mappedBy = "running", orphanRemoval = true, cascade = CascadeType.ALL)
+    @JsonManagedReference("running_sessions")
     private List<RunningSession> sessions = new ArrayList<>();
 
 }

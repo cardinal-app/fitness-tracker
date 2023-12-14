@@ -1,5 +1,6 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.misc.session;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
 import jakarta.persistence.Column;
@@ -26,8 +27,8 @@ public class GPPSession extends AbstractEntity {
     private static final long serialVersionUID = 8710906525409016436L;
 
     @ManyToOne
-    @JoinColumn(name = "misc_id")
-//    @JoinColumn(name = "misc_id", nullable = false)
+    @JoinColumn(name = "misc_id", nullable = false)
+    @JsonBackReference("misc_gpp")
     private Misc misc;
 
     @Column(name = "day_of_week")

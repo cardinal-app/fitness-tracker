@@ -1,6 +1,8 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.misc;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.AuxiliarySession;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.GPPSession;
@@ -24,6 +26,7 @@ import java.util.List;
 @Table(name = "misc")
 @Builder @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Misc extends AbstractEntity {
 
     @Serial
@@ -33,12 +36,15 @@ public class Misc extends AbstractEntity {
     private String weekNotes;
 
     @OneToMany(mappedBy = "misc", orphanRemoval = true, cascade = CascadeType.ALL)
+    @JsonManagedReference("misc_auxiliaries")
     private List<AuxiliarySession> auxiliaries = new ArrayList<>();
 
     @OneToMany(mappedBy = "misc", orphanRemoval = true, cascade = CascadeType.ALL)
+    @JsonManagedReference("misc_gpp")
     private List<GPPSession> gpp = new ArrayList<>();
 
     @OneToMany(mappedBy = "misc", orphanRemoval = true, cascade = CascadeType.ALL)
+    @JsonManagedReference("misc_sessions")
     private List<MiscSession> sessions = new ArrayList<>();
 
 }

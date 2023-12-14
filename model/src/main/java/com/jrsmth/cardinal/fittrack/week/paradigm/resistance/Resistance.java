@@ -1,5 +1,7 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.resistance;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import com.jrsmth.cardinal.fittrack.week.paradigm.resistance.session.ResistanceSession;
 import jakarta.persistence.CascadeType;
@@ -20,12 +22,14 @@ import java.util.List;
 @Table(name = "resistance")
 @Builder @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Resistance extends AbstractEntity {
 
     @Serial
     private static final long serialVersionUID = 8096224721154503814L;
 
     @OneToMany(mappedBy = "resistance", orphanRemoval = true, cascade = CascadeType.ALL)
+    @JsonManagedReference("resistance_sessions")
     private List<ResistanceSession> sessions = new ArrayList<>();
 
 }

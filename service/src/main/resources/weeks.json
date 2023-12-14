@@ -57,7 +57,7 @@
         }
       ]
     },
-    "miscellaneous": {
+    "misc": {
       "gpp": [
           {"day": "MONDAY", "press": 25, "pull": 10, "full": true},
           {"day": "TUESDAY", "press": 28, "pull": 8, "full": true},

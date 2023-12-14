@@ -1,5 +1,6 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.running;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
@@ -21,6 +22,7 @@ import java.util.Map;
 @Table(name = "volume")
 @Builder @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Volume extends AbstractEntity {
 
     @Serial

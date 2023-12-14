@@ -51,17 +51,14 @@ public class Week extends AbstractEntity {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "misc_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Misc miscellaneous;
+    private Misc misc;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "resistance_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Resistance resistance;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "running_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Running running;
 
 }

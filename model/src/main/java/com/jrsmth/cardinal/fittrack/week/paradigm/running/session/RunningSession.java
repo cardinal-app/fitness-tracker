@@ -1,5 +1,6 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.running.session;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jrsmth.cardinal.fittrack.week.paradigm.Session;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
 import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.MiscType;
@@ -31,8 +32,8 @@ public class RunningSession extends Session {
     private static final long serialVersionUID = -5171173816050359694L;
 
     @ManyToOne
-    @JoinColumn(name = "running_id")
-//    @JoinColumn(name = "running_id", nullable = false)
+    @JoinColumn(name = "running_id", nullable = false)
+    @JsonBackReference("running_sessions")
     private Running running;
 
     @Column(name = "type")

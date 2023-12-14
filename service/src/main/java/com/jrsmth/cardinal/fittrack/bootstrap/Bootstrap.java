@@ -1,6 +1,5 @@
 package com.jrsmth.cardinal.fittrack.bootstrap;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jrsmth.cardinal.fittrack.week.Week;
 import com.jrsmth.cardinal.fittrack.week.WeekRepository;

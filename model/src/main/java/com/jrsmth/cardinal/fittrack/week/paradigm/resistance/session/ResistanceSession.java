@@ -1,5 +1,7 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.resistance.session;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jrsmth.cardinal.fittrack.week.paradigm.Session;
 import com.jrsmth.cardinal.fittrack.week.paradigm.resistance.Resistance;
 import jakarta.persistence.Column;
@@ -27,14 +29,15 @@ public class ResistanceSession extends Session {
     private static final long serialVersionUID = -51929308058883634L;
 
     @ManyToOne
-    @JoinColumn(name = "resistance_id")
-//    @JoinColumn(name = "resistance_id", nullable = false)
+    @JoinColumn(name = "resistance_id", nullable = false)
+    @JsonBackReference("resistance_sessions")
     private Resistance resistance;
 
     @Column(name = "focus")
     private Focus focus;
 
     @OneToMany(mappedBy = "session")
+    @JsonManagedReference("session_exercises")
     private List<Exercise> exercises;
 
 }

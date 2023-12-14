@@ -1,13 +1,11 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.resistance.session;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
-import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
-import com.jrsmth.cardinal.fittrack.week.paradigm.resistance.Resistance;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,6 +28,7 @@ public class Exercise extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "session_id", nullable = false)
+    @JsonBackReference("session_exercises")
     private ResistanceSession session;
 
     @Column(name = "name")

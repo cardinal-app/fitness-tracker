@@ -1,9 +1,8 @@
 package com.jrsmth.cardinal.fittrack.week;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
-import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
+import com.jrsmth.cardinal.fittrack.week.paradigm.general.General;
 import com.jrsmth.cardinal.fittrack.week.paradigm.resistance.Resistance;
 import com.jrsmth.cardinal.fittrack.week.paradigm.running.Running;
 import jakarta.persistence.CascadeType;
@@ -50,8 +49,8 @@ public class Week extends AbstractEntity {
     private List<Flag> flags;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "misc_id", referencedColumnName = "id")
-    private Misc misc;
+    @JoinColumn(name = "general_id", referencedColumnName = "id")
+    private General general;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "resistance_id", referencedColumnName = "id")

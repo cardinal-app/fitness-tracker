@@ -2,8 +2,6 @@ package com.jrsmth.cardinal.fittrack.week.paradigm.running.session;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jrsmth.cardinal.fittrack.week.paradigm.Session;
-import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
-import com.jrsmth.cardinal.fittrack.week.paradigm.misc.session.MiscType;
 import com.jrsmth.cardinal.fittrack.week.paradigm.running.Running;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;

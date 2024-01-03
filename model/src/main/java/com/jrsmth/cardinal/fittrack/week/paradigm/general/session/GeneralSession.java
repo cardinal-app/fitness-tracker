@@ -1,8 +1,8 @@
-package com.jrsmth.cardinal.fittrack.week.paradigm.misc.session;
+package com.jrsmth.cardinal.fittrack.week.paradigm.general.session;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jrsmth.cardinal.fittrack.week.paradigm.Session;
-import com.jrsmth.cardinal.fittrack.week.paradigm.misc.Misc;
+import com.jrsmth.cardinal.fittrack.week.paradigm.general.General;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -21,26 +21,26 @@ import java.io.Serial;
 import java.util.Map;
 
 @Entity
-@Table(name = "misc_session")
+@Table(name = "general_session")
 @Builder @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class MiscSession extends Session {
+public class GeneralSession extends Session {
 
     @Serial
     private static final long serialVersionUID = 8694720372493432886L;
 
     @ManyToOne
-    @JoinColumn(name = "misc_id", nullable = false)
-    @JsonBackReference("misc_sessions")
-    private Misc misc;
+    @JoinColumn(name = "general_id", nullable = false)
+    @JsonBackReference("general_sessions")
+    private General general;
 
     @Column(name = "type")
-    private MiscType type;
+    private GeneralType type;
 
     @ElementCollection
     @CollectionTable(
-            name = "misc_session_data_points_mapping",
-            joinColumns = {@JoinColumn(name = "misc_session_id", referencedColumnName = "id")}
+            name = "general_session_data_points_mapping",
+            joinColumns = {@JoinColumn(name = "general_session_id", referencedColumnName = "id")}
     )
     @MapKeyColumn(name = "datum_name")
     @Column(name = "data_points")

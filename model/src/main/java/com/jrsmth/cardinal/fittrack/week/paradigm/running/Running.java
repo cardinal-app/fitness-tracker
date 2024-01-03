@@ -3,8 +3,10 @@ package com.jrsmth.cardinal.fittrack.week.paradigm.running;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jrsmth.cardinal.fittrack.AbstractEntity;
+import com.jrsmth.cardinal.fittrack.week.paradigm.general.session.GeneralType;
 import com.jrsmth.cardinal.fittrack.week.paradigm.running.session.RunningSession;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -31,9 +33,8 @@ public class Running extends AbstractEntity {
     @Serial
     private static final long serialVersionUID = 6933491552937273687L;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "volume_id", referencedColumnName = "id")
-    private Volume volume;
+    @Column(name = "volume_miles")
+    private Integer volume;
 
     @OneToMany(mappedBy = "running", orphanRemoval = true, cascade = CascadeType.ALL)
     @JsonManagedReference("running_sessions")

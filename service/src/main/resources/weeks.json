@@ -4,15 +4,59 @@
     "week": 1,
     "week_commencing": "2024-01-01",
     "flags": ["OUT"],
+    "general": {
+      "week_notes": "Lorem ipsum dolor set...",
+      "activities": [
+        {
+          "type": "SQUASH",
+          "number": 2,
+          "notes": "Lorem ipsum dolor set..."
+        },
+        {
+          "type": "FOOTBALL",
+          "number": 1,
+          "notes": "Lorem ipsum dolor set..."
+        },
+        {
+          "type": "RESTORE",
+          "number": 1,
+          "notes": "Lorem ipsum dolor set..."
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2024-01-06",
+          "ante_meridiem": true,
+          "type": "PJFT",
+          "location": "CASSIO",
+          "data_points": [
+            {
+              "score": "2.25"
+            }
+          ],
+          "notes": "Lorem ipsum dolor set.."
+        }
+      ],
+      "gym": {
+        "max_press": 25,
+        "max_pull": 9,
+        "total_press": 160,
+        "total_pull": 53,
+        "core_exercise": "HANGING_LEG_RAISE",
+        "core_set_reps": [12, 12, 12],
+        "notes": "Standard gym work on THU AM, plus FINTAN session on TUE"
+      }
+    },
     "resistance": {
       "sessions": [
         {
           "date": "2024-01-01",
           "ante_meridiem": true,
-          "focus": "LOWER",
+          "name": "GYM A",
+          "focus": "FULL",
           "exercises": [
             {
-              "name": "Hex Squat",
+              "name": "HEX_SQUAT",
               "set_reps": [8, 8, 5, 5, 5, 5, 5],
               "resistance": [35, 55, 90],
               "notes": "Lorem ipsum dolor set.."
@@ -23,13 +67,7 @@
       ]
     },
     "running": {
-      "volume": {
-        "miles": 9,
-        "activities": {
-          "footie": 1,
-          "squash": 2
-        }
-      },
+      "volume_miles": 8,
       "sessions": [
         {
           "date": "2024-01-02",
@@ -51,40 +89,6 @@
           "data_points": [
             {
               "time_minutes": "21.3"
-            }
-          ],
-          "notes": "Lorem ipsum dolor set.."
-        }
-      ]
-    },
-    "misc": {
-      "gpp": [
-          {"day": "MONDAY", "press": 25, "pull": 10, "full": true},
-          {"day": "TUESDAY", "press": 28, "pull": 8, "full": true},
-          {"day": "WEDNESDAY", "press": 0, "pull": 0, "full": false},
-          {"day": "THURSDAY", "press": 24, "pull": 10, "full": true},
-          {"day": "FRIDAY", "press": 0, "pull": 9, "full": false}
-      ],
-      "overall_week_notes": "Lorem ipsum dolor set...",
-      "auxiliaries": [
-        {
-          "name": "SWIM",
-          "notes": "Lorem ipsum dolor set..."
-        },
-        {
-          "name": "RESTORE",
-          "notes": "Lorem ipsum dolor set..."
-        }
-      ],
-      "sessions": [
-        {
-          "date": "2024-01-06",
-          "ante_meridiem": true,
-          "type": "PJFT",
-          "location": "CASSIO",
-          "data_points": [
-            {
-              "score": "2.25"
             }
           ],
           "notes": "Lorem ipsum dolor set.."

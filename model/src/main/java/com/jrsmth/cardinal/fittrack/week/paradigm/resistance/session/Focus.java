@@ -1,7 +1,7 @@
 package com.jrsmth.cardinal.fittrack.week.paradigm.resistance.session;
 
 public enum Focus {
-    ALL_BODY,
+    FULL,
     BACK_BIS,
     CHEST_TRIS,
     CORE,

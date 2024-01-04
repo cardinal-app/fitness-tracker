@@ -43,6 +43,9 @@ public class Week extends AbstractEntity {
     @Column(name = "week_commencing")
     private Date weekCommencing;
 
+    @Column(name = "week_notes")
+    private String weekNotes;
+
     @Column
     @Enumerated
     @ElementCollection(targetClass = Flag.class)

@@ -3,9 +3,9 @@
     "block": 14,
     "week": 1,
     "week_commencing": "2024-01-01",
+    "week_notes": "Lorem ipsum dolor set...",
     "flags": ["OUT"],
     "general": {
-      "week_notes": "Lorem ipsum dolor set...",
       "activities": [
         {
           "type": "SQUASH",

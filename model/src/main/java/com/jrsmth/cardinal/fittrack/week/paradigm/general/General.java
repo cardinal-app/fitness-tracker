@@ -33,9 +33,6 @@ public class General extends AbstractEntity {
     @Serial
     private static final long serialVersionUID = -6901075776089719635L;
 
-    @Column(name = "week_notes")
-    private String weekNotes;
-
     @OneToMany(mappedBy = "general", orphanRemoval = true, cascade = CascadeType.ALL)
     @JsonManagedReference("general_activities")
     private List<Activity> activities = new ArrayList<>();

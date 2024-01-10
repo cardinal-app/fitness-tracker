@@ -33,7 +33,7 @@ public class Running extends AbstractEntity {
     @Serial
     private static final long serialVersionUID = 6933491552937273687L;
 
-    @Column(name = "volume_miles")
+    @Column(name = "volume")
     private Integer volume;
 
     @OneToMany(mappedBy = "running", orphanRemoval = true, cascade = CascadeType.ALL)

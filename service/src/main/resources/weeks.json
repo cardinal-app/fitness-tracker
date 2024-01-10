@@ -67,7 +67,7 @@
       ]
     },
     "running": {
-      "volume_miles": 8,
+      "volume": 8,
       "sessions": [
         {
           "date": "2024-01-02",

@@ -10,11 +10,10 @@ import org.springframework.boot.json.JsonParser;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +21,8 @@ import java.util.List;
 @Profile("local")
 @RequiredArgsConstructor @Slf4j
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
+
+    private static final String RESOURCE = "weeks.json";
 
     private final WeekRepository weekRepository;
     private final ObjectMapper mapper;
@@ -38,7 +39,7 @@ public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
     }
 
     private List<Week> getWeeks() throws IOException {
-        byte[] file = Files.readAllBytes(Paths.get("service/src/main/resources/weeks.json"));
+        byte[] file = new ClassPathResource(RESOURCE).getInputStream().readAllBytes();
         var unconvertedWeeks = parser.parseList(new String(file));
         List<Week> weeks = new ArrayList<>();
 

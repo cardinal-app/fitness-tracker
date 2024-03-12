@@ -28,7 +28,7 @@ jobs:
       - name: Release 📦
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.VERSION }}
+          tag_name: ${{ env.RELEASE_VERSION }}
       - name: Add -SNAPSHOT 📷
         run: |
           cat gradle.properties | jq -R -s 'split("\n") | map(select(length > 0)) | map(select(startswith("#") | not)) | map(split("=")) | map({(.[0]): .[1]}) | add' >> gradle.json

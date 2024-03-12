@@ -11,7 +11,7 @@ jobs:
       - name: Set-up User 🐵
         uses: fregante/setup-git-user@v2
       - name: Retrieve Version 🔍
-          echo "VERSION=$(./gradlew -q printVersion | cut -d '-' -f1)" >> $GITHUB_ENV
+        run: echo "VERSION=$(./gradlew -q printVersion | cut -d '-' -f1)" >> $GITHUB_ENV
         # Note :: an env var cannot be accessed from a step that defines or updates it
       - name: Bump and Tag 🏷️
         run: |
@@ -24,7 +24,6 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
       - name: Add -SNAPSHOT 📷
-        run:
-          gradle -Pversion=${{ env.SNAPSHOT_VERSION }} publish
+        run: gradle -Pversion=${{ env.SNAPSHOT_VERSION }} publish
       - name: Commit -SNAPSHOT 💾
         uses: stefanzweifel/git-auto-commit-action@v4

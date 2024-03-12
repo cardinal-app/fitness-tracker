@@ -32,7 +32,7 @@ jobs:
       - name: Add -SNAPSHOT 📷
         run: |
           cat gradle.properties | jq -R -s 'split("\n") | map(select(length > 0)) | map(select(startswith("#") | not)) | map(split("=")) | map({(.[0]): .[1]}) | add' >> gradle.json
-          jq '.version="${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCHED }}-SNAPSHOT"' gradle.json
+          jq '.version="${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCHED }}-SNAPSHOT"' gradle.json > /tmp/gradle.json
           rm gradle.properties
           jq -r 'to_entries[]|"\(.key)=\(.value)"' gradle.json >> gradle.properties
           rm gradle.json

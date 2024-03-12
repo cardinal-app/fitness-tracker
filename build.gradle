@@ -26,15 +26,3 @@ bootJar {
 jar {
 	enabled = true
 }
-
-tasks.register('printVersion') {
-	doLast {
-		println project.version
-	}
-}
-
-tasks.register('printNextSnapshot') {
-	def (version, snapshot) = project.version.tokenize('-')
-	def (major, minor, patch) = version.tokenize('.')
-	println """${major}.${minor}.${patch as int + 1}-SNAPSHOT"""
-}

@@ -12,6 +12,8 @@ jobs:
   release:
 #    needs: test
     name: release
+    permissions:
+      packages: write
     uses: ./.github/workflows/step-release.yaml
   merge:
     needs: release

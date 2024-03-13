@@ -3,8 +3,6 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-permissions:
-  contents: write
 jobs:
 #  test:
 #    name: test
@@ -14,6 +12,7 @@ jobs:
     name: release
     permissions:
       packages: write
+      contents: write
     uses: ./.github/workflows/step-release.yaml
   merge:
     needs: release

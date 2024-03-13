@@ -1,63 +1,65 @@
 plugins {
-	id "java"
-	id "org.springframework.boot" version "3.2.0"
-	id "io.spring.dependency-management" version "1.1.4"
-	id 'net.researchgate.release' version '3.0.2'
-	id 'maven-publish'
+    id "java"
+    id "org.springframework.boot" version "3.2.0"
+    id "io.spring.dependency-management" version "1.1.4"
+    id 'net.researchgate.release' version '3.0.2'
+    id 'maven-publish'
 }
 
 allprojects {
-	repositories {
-		mavenCentral()
-	}
+    repositories {
+        mavenCentral()
+    }
 }
 
 rootProject.subprojects { subproject ->
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 
-	group = project.getProperty("group")
-	version = project.getProperty("version")
-	artifactName = subproject.getProperty("artifactName")
-	packaging = subproject.getProperty("packaging")
+    group = project.getProperty("group")
+    version = project.getProperty("version")
+    artifactName = subproject.getProperty("artifactName")
+    packaging = subproject.getProperty("packaging")
 
-	subproject.ext.versions = [
-			lombok                    : "1.18.24",
-	]
+    subproject.ext.versions = [
+            lombok                    : "1.18.24",
+    ]
 }
 
 bootJar {
-	enabled = false
+    enabled = false
 }
 
 jar {
-	enabled = true
+    enabled = true
 }
 
 release {
-	buildTasks = ['publish']
+    buildTasks = ['publish']
 }
 
 publishing {
-	repositories {
-		maven {
-			name = "GitHubPackages"
-			url = uri("https://maven.pkg.github.com/cardinal-app/fitness-tracker/releases")
-			credentials {
-				username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
-				password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
-			}
-		}
-	}
-	publications {
-		gpr(MavenPublication) {
-			from(components.java)
-		}
-	}
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/cardinal-app/fitness-tracker")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
 
-	/** Courtesy of
-	 * https://medium.com/@shanemyrick/publishing-to-github-packages-with-gradle-and-github-actions-4ad842634c4e
-	 * https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry
-	 */
+    /** Courtesy of
+     * https://medium.com/@shanemyrick/publishing-to-github-packages-with-gradle-and-github-actions-4ad842634c4e
+     * https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry
+     * https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
+     * https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp
+     */
 }

@@ -7,34 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
-      - name: Set-up User 🐵
-        uses: fregante/setup-git-user@v2
-      - name: Retrieve Version 🔍
+        uses: actions/checkout@v2
+      - name: Set-up Gradle 🔨
+        uses: gradle/gradle-build-action@v2
+      - name: Set-up Git 🐵
         run: |
-          cat gradle.properties | jq -R -s 'split("\n") | map(select(length > 0)) | map(select(startswith("#") | not)) | map(split("=")) | map({(.[0]): .[1]}) | add' >> gradle.json
-          echo "RELEASE_VERSION=$(cat gradle.json | jq -r '.version' | cut -d '-' -f1)" >> $GITHUB_ENV
-          echo "MAJOR=$(cat gradle.json | jq -r '.version' | cut -d "." -f 1)" >> $GITHUB_ENV
-          echo "MINOR=$(cat gradle.json | jq -r '.version' | cut -d "." -f 2)" >> $GITHUB_ENV
-          echo "PATCHED=$((1 + $(cat gradle.json | jq -r '.version' | cut -d "." -f 3) ))" >> $GITHUB_ENV
-          rm gradle.properties
-          jq -r 'to_entries[]|"\(.key)=\(.value)"' gradle.json >> gradle.properties
-          rm gradle.json
-        # Note :: an env var cannot be accessed from a step that defines or updates it
-      - name: Bump and Tag 🏷️
-        run: |
-          git tag ${{ env.RELEASE_VERSION }} -m "[release] fit-track-${{ env.RELEASE_VERSION }}"
-          git push origin ${{ env.RELEASE_VERSION }}  
-      - name: Release 📦
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ env.RELEASE_VERSION }}
-      - name: Add -SNAPSHOT 📷
-        run: |
-          cat gradle.properties | jq -R -s 'split("\n") | map(select(length > 0)) | map(select(startswith("#") | not)) | map(split("=")) | map({(.[0]): .[1]}) | add' >> gradle.json
-          jq '.version="${{ env.MAJOR }}.${{ env.MINOR }}.${{ env.PATCHED }}-SNAPSHOT"' gradle.json > /tmp/gradle.json
-          rm gradle.properties
-          jq -r 'to_entries[]|"\(.key)=\(.value)"' gradle.json >> gradle.properties
-          rm gradle.json
-      - name: Commit -SNAPSHOT 💾
-        uses: stefanzweifel/git-auto-commit-action@v4
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: Release 🏷️
+        run: ./gradlew release

@@ -20,4 +20,4 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
       - name: Release 🏷️
-        run: ./gradlew build
+        run: ./gradlew release

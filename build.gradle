@@ -28,10 +28,6 @@ jar {
 	enabled = true
 }
 
-packageRelease {
-
-}
-
 release {
 	buildTasks = ['build']
 }

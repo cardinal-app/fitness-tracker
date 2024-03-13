@@ -17,4 +17,6 @@ jobs:
   merge:
     needs: release
     name: merge
+    permissions:
+      contents: write
     uses: ./.github/workflows/step-merge.yaml

@@ -1,5 +1,4 @@
-[![jhc github](https://img.shields.io/badge/GitHub-jrsmth-181717.svg?style=flat&logo=github)](https://github.com/jrsmth)
-[![springboot](https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=Spring&logoColor=white)](https://start.spring.io)
+[![springboot](https://img.shields.io/badge/SpringBoot-6DB33F?&logo=Spring&logoColor=white)](https://start.spring.io)
 <!-- Workflow Badge - Team City and/or GitHub Actions -->
 # fitness-tracker
 *Fitness Tracker Microservice (fit-track)*

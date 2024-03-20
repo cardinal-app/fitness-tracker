@@ -38,7 +38,7 @@ class WeekIT extends Specification {
         def content = mapper.readValue(result.response.getContentAsString(), Week.class)
 
         then:
-        content != null
+        content == null
         content instanceof Week
 
         and:

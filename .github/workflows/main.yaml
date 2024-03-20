@@ -4,11 +4,11 @@ on:
     branches: [ main ]
   workflow_dispatch:
 jobs:
-#  test:
-#    name: test
-#    uses: ./.github/workflows/step-test.yaml
+  test:
+    name: test
+    uses: ./.github/workflows/step-test.yaml
   release:
-#    needs: test
+    needs: test
     name: release
     permissions:
       packages: write

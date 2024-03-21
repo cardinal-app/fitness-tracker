@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgres://dpg-cnthl3la73kc738i8btg-a/cardinal
+    url: jdbc:postgresql://dpg-cnthl3la73kc738i8btg-a/cardinal
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
     driverClassName: org.postgresql.Driver

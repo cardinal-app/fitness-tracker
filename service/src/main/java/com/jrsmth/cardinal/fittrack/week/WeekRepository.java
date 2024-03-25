@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Repository
-@CrossOrigin({"http://localhost:4200", "http://localhost:3000"})
+@CrossOrigin({"http://localhost:4200", "http://localhost:3000", "https://cardinal.jrsmth.io"})
 @RepositoryRestResource(path="weeks")
 public interface WeekRepository extends JpaRepository<Week, Long> {
 

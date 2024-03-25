@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Profile("local")
+@Profile("test")
 @RequiredArgsConstructor @Slf4j
 public class Bootstrap implements ApplicationListener<ContextRefreshedEvent> {
 

@@ -16,4 +16,7 @@ jobs:
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
       - name: Test 📐
-        run: ./gradlew test
+        run: |
+          echo ${{ secrets.GPR_USER }}
+          echo ${{ GPR_USER }}
+          ./gradlew test

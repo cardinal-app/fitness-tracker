@@ -1,8 +1,8 @@
-package com.jrsmth.cardinal.fittrack.service.week
+package io.jrsmth.cardinal.fittrack.service.week
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.jrsmth.cardinal.fittrack.week.Week
-import com.jrsmth.cardinal.fittrack.week.WeekRepository
+import io.jrsmth.cardinal.fittrack.week.Week
+import io.jrsmth.cardinal.fittrack.week.WeekRepository
 import jakarta.transaction.Transactional
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc

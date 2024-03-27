@@ -24,6 +24,8 @@ rootProject.subprojects { subproject ->
 
     subproject.ext.versions = [
             lombok                    : "1.18.24",
+            cardinalModel             : "0.0.0",
+            jackson                   : "2.12.7.1"
     ]
 }
 

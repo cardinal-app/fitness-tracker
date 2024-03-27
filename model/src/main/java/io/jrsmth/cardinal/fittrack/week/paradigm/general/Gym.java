@@ -1,7 +1,7 @@
 package io.jrsmth.cardinal.fittrack.week.paradigm.general;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.jrsmth.cardinal.fittrack.AbstractEntity;
+import io.jrsmth.cardinal.model.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;

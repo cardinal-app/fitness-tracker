@@ -2,7 +2,7 @@ package io.jrsmth.cardinal.fittrack.week.paradigm.resistance;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import io.jrsmth.cardinal.fittrack.AbstractEntity;
+import io.jrsmth.cardinal.model.AbstractEntity;
 import io.jrsmth.cardinal.fittrack.week.paradigm.resistance.session.ResistanceSession;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

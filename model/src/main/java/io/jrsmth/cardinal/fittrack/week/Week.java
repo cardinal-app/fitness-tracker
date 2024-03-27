@@ -1,7 +1,7 @@
 package io.jrsmth.cardinal.fittrack.week;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.jrsmth.cardinal.model.AbstractEntity;
+import io.jrsmth.cardinal.common.model.AbstractEntity;
 import io.jrsmth.cardinal.fittrack.week.paradigm.Flag;
 import io.jrsmth.cardinal.fittrack.week.paradigm.resistance.Resistance;
 import io.jrsmth.cardinal.fittrack.week.paradigm.general.General;

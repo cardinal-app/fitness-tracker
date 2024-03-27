@@ -1,11 +1,10 @@
 package io.jrsmth.cardinal.fittrack.week.paradigm.general;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.jrsmth.cardinal.model.AbstractEntity;
+import io.jrsmth.cardinal.common.model.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +13,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity

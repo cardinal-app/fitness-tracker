@@ -9,6 +9,14 @@ plugins {
 allprojects {
     repositories {
         mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/cardinal-app/common")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
 
@@ -23,9 +31,9 @@ rootProject.subprojects { subproject ->
     packaging = subproject.getProperty("packaging")
 
     subproject.ext.versions = [
-            lombok                    : "1.18.24",
-            cardinalModel             : "0.0.0",
-            jackson                   : "2.12.7.1"
+            common                    : "0.0.0",
+            jackson                   : "2.12.7.1",
+            lombok                    : "1.18.24"
     ]
 }
 
@@ -57,11 +65,4 @@ publishing {
             from(components.java)
         }
     }
-
-    /** Courtesy of
-     * https://medium.com/@shanemyrick/publishing-to-github-packages-with-gradle-and-github-actions-4ad842634c4e
-     * https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry
-     * https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
-     * https://dev.to/github/the-githubtoken-in-github-actions-how-it-works-change-permissions-customizations-3cgp
-     */
 }

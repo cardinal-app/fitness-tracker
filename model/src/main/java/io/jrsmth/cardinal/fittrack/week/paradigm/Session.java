@@ -1,6 +1,6 @@
 package io.jrsmth.cardinal.fittrack.week.paradigm;
 
-import io.jrsmth.cardinal.model.AbstractEntity;
+import io.jrsmth.cardinal.common.model.AbstractEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;

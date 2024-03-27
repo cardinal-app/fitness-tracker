@@ -1,7 +1,7 @@
 package io.jrsmth.cardinal.fittrack.week.paradigm.general.activity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import io.jrsmth.cardinal.model.AbstractEntity;
+import io.jrsmth.cardinal.common.model.AbstractEntity;
 import io.jrsmth.cardinal.fittrack.week.paradigm.general.General;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

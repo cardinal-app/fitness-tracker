@@ -3,6 +3,9 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+env:
+  GPR_USER: ${{ secrets.GPR_USER }}
+  GPR_KEY: ${{ secrets.GPR_KEY }}
 jobs:
   test:
     name: test

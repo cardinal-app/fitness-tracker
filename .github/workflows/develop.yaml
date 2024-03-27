@@ -2,6 +2,9 @@ name: develop
 on:
   push:
     branches: [ develop ]
+env:
+  GPR_USER: ${{ secrets.GPR_USER }}
+  GPR_KEY: ${{ secrets.GPR_KEY }}
 jobs:
   test:
     name: test

@@ -6,6 +6,8 @@ plugins {
     id 'maven-publish'
 }
 
+println System.getenv("GPR_USER")
+
 allprojects {
     repositories {
         mavenCentral()

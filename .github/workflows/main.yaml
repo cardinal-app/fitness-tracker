@@ -6,6 +6,8 @@ on:
 jobs:
   test:
     name: test
+    permissions:
+      packages: read
     uses: ./.github/workflows/step-test.yaml
   release:
     needs: test

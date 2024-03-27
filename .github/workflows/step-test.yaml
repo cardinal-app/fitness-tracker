@@ -21,7 +21,7 @@ jobs:
       - name: Test 📐
         run: |
           echo ${{ secrets.GPR_USER }}
-          TEST=Test
+          TEST=${{ secrets.GPR_USER }}
           echo $GPR_USER
           echo $TEST
           ./gradlew test

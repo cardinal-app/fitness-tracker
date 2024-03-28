@@ -6,8 +6,6 @@ plugins {
     id 'maven-publish'
 }
 
-println System.getenv("GPR_USER")
-
 allprojects {
     repositories {
         mavenCentral()
@@ -17,6 +15,7 @@ allprojects {
             credentials {
                 username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
                 password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")
+                // Note :: the commons repo has been made public due to failing workflow (401 err)
             }
         }
     }

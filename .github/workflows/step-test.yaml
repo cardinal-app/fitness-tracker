@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set-up Java ☕
         uses: actions/setup-java@v4
         with:
@@ -17,7 +19,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
       - name: Set-up GPR Access 🥸
         run: |
-          echo "GPR_USER=dummy" >> "$GITHUB_ENV"
+          echo "GPR_USER=jrsmth" >> "$GITHUB_ENV"
           echo "GPR_KEY=${{ secrets.GPR_KEY }}" >> "$GITHUB_ENV"
       - name: Test 📐
         run:  ./gradlew test --stacktrace

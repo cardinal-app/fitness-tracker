@@ -7,7 +7,7 @@ plugins {
 }
 
 println 'USER: ' + System.getenv("GPR_USER")
-println 'KEY:  ' + System.getenv("GPR_KEY")
+println 'KEY:  ' + System.getenv("GPR_KEY").length()
 
 allprojects {
     repositories {

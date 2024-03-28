@@ -16,4 +16,7 @@ jobs:
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
       - name: Test 📐
-        run:  ./gradlew build -PgprUser=${{ secrets.GPR_USER }} -PgprKey=${{ secrets.GPR_KEY }}
+        env:
+          GPR_USER=${{ secrets.GPR_USER }}
+          GPR_KEY=${{ secrets.GPR_KEY }}
+        run:  ./gradlew test --stacktrace

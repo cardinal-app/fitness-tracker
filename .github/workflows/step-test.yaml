@@ -5,9 +5,6 @@ jobs:
   test:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
-    env:
-      GPR_USER: ${{ secrets.GPR_USER }}
-      GPR_KEY: ${{ secrets.GPR_KEY }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -19,4 +16,7 @@ jobs:
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
       - name: Test 📐
-        run: ./gradlew test --scan --stacktrace
+        run: |
+          export GPR_USER=${{ secrets.GPR_USER }}
+          export GPR_KEY=${{ secrets.GPR_KEY }}
+          ./gradlew test --scan --stacktrace

@@ -1,6 +1,11 @@
 name: test
 on:
   workflow_call:
+  secrets:
+    GPR_USER:
+      required: true
+    GPR_KEY:
+      required: true
 jobs:
   test:
     concurrency: ci-${{ github.ref }}

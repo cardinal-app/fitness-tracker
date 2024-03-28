@@ -19,4 +19,4 @@ jobs:
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
       - name: Test 📐
-        run: ./gradlew test
+        run: ./gradlew test --scan

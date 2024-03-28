@@ -12,6 +12,10 @@ allprojects {
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/cardinal-app/common")
+            credentials {
+                username System.getenv("GPR_USER")
+                password System.getenv("GPR_KEY")
+            }
             // Note :: the commons repo has been made public due to failing workflow (401 err)
         }
     }

@@ -5,6 +5,9 @@ jobs:
   release:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
+    env:
+      GPR_USER: ${{ secrets.GPR_USER }}
+      GPR_KEY: ${{ secrets.GPR_KEY }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4

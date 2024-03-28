@@ -15,6 +15,5 @@ jobs:
           java-version: 21
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
-      - name: Set-up GPR Access 🥸
       - name: Test 📐
-        run:  ./gradlew test
+        run:  ./gradlew test --stacktrace

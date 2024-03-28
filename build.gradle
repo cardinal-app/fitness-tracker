@@ -6,9 +6,6 @@ plugins {
     id 'maven-publish'
 }
 
-println System.getenv("GPR_USER")
-println System.getenv("GPR_KEY")
-
 allprojects {
     repositories {
         mavenCentral()
@@ -51,6 +48,11 @@ jar {
 
 release {
     buildTasks = ['publish']
+}
+
+test {
+    println System.getenv("GPR_USER")
+    println System.getenv("GPR_KEY")
 }
 
 publishing {

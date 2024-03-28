@@ -15,8 +15,9 @@ jobs:
           java-version: 21
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
+      - name: Set-up GPR Access 🥸
+        run: |
+          echo "GPR_USER=${{ secrets.GPR_USER }}" >> "$GITHUB_ENV"
+          echo "GPR_KEY=${{ secrets.GPR_KEY }}" >> "$GITHUB_ENV"
       - name: Test 📐
-        env:
-          GPR_USER: ${{ secrets.GPR_USER }}
-          GPR_KEY: ${{ secrets.GPR_KEY }}
         run:  ./gradlew test --stacktrace

@@ -8,8 +8,8 @@ jobs:
     name: test
     permissions:
       packages: read
-    secrets: inherit
     uses: ./.github/workflows/step-test.yaml
+    secrets: inherit
   release:
     needs: test
     name: release

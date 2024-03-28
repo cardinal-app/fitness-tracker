@@ -6,8 +6,8 @@ plugins {
     id 'maven-publish'
 }
 
-println "USER: " + System.getenv("GPR_USER")
-println "KEY: " + System.getenv("GPR_KEY")
+println 'USER: ' + System.getenv("GPR_USER")
+println 'KEY:  ' + System.getenv("GPR_KEY")
 
 allprojects {
     repositories {
@@ -16,8 +16,8 @@ allprojects {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/cardinal-app/common")
             credentials {
-                username project.property('gprUser').toString()
-                password project.property('gprKey').toString()
+                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
+                password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")
             }
             // Note :: the commons repo has been made public due to failing workflow (401 err)
         }

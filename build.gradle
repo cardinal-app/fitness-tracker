@@ -6,8 +6,8 @@ plugins {
     id 'maven-publish'
 }
 
-println System.getenv("GPR_USER")
-println System.getenv("GPR_KEY")
+println "USER: " + System.getenv("GPR_USER")
+println "KEY: " + System.getenv("GPR_KEY")
 
 allprojects {
     repositories {

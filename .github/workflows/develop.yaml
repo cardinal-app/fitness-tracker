@@ -8,3 +8,8 @@ jobs:
     permissions:
       packages: read
     uses: ./.github/workflows/step-test.yaml
+    secrets:
+      GPR_USER:
+        required: true
+      GPR_KEY:
+        required: true

@@ -16,4 +16,4 @@ jobs:
       - name: Set-up Gradle 🔨
         uses: gradle/actions/setup-gradle@v3
       - name: Test 📐
-        run: ./gradlew test -Dgpr_user=${{ secrets.GPR_USER }} --Dgpr_key=${{ secrets.GPR_KEY }}
+        run: ./gradlew test -Dgpr_user=${{ secrets.GPR_USER }} -Dgpr_key=${{ secrets.GPR_KEY }}

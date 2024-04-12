@@ -1,6 +1,7 @@
 package io.jrsmth.cardinal.fittrack.service.week
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import io.jrsmth.cardinal.common.util.security.TokenManager
 import io.jrsmth.cardinal.fittrack.week.Week
 import io.jrsmth.cardinal.fittrack.week.WeekRepository
 import jakarta.transaction.Transactional
@@ -24,18 +25,24 @@ class WeekIT extends Specification {
     @Autowired MockMvc mockMvc
     @Autowired ObjectMapper mapper
     @Autowired WeekRepository repository
+    @Autowired TokenManager tokenManager
+
+    def contentType = "application/json;charset=UTF-8"
 
     def "should retrieve bootstrapped week from datasource"() {
         given:
-        def endpoint = "/weeks/1"
+        def userId = 1L
+        def endpoint = "/weeks/${userId}"
 
         when:
-        def result = mockMvc.perform(get(endpoint))
+        def res = mockMvc.perform(
+                get(endpoint)
+                .header("Authorization", "Bearer ${tokenManager.generateFor(userId)}"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn()
 
-        def content = mapper.readValue(result.response.getContentAsString(), Week.class)
+        def content = mapper.readValue(res.response.getContentAsString(), Week.class)
 
         then:
         content != null
@@ -51,16 +58,18 @@ class WeekIT extends Specification {
         def block = 1
         def endpoint = "/weeks"
         def week = Week.builder().block(block).build()
+        def userId = 2
 
         when:
         mockMvc.perform(post(endpoint)
-                .contentType("application/json;charset=UTF-8")
-                .content(mapper.writeValueAsString(week)))
+                .contentType(contentType)
+                .content(mapper.writeValueAsString(week))
+                .header("Authorization", "Bearer ${tokenManager.generateFor(userId)}"))
                 .andDo(print())
                 .andExpect(status().isCreated())
 
         then:
-        def result = repository.getReferenceById(2)
+        def result = repository.getReferenceById(userId)
         result.block == block
 
         and:

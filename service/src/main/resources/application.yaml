@@ -1,2 +1,6 @@
 server:
   port: 8080
+token:
+  signing:
+    secret: ${TOKEN_SECRET}
+
